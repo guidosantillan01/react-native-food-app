@@ -26,3 +26,7 @@ import { Feather } from '@expo/vector-icons';
 
 <Feather name="search" size={30} />;
 ```
+
+## Install `axios`
+
+`npm install axios`
