@@ -51,3 +51,33 @@ const searchApi = async () => {
   }
 };
 ```
+
+## withNavigation
+
+```js
+import { withNavigation } from 'react-navigation';
+
+const ResultsList = ({ title, results, navigation }) => {
+
+  ...
+
+export default withNavigation(ResultsList);
+```
+
+## Pass params to child components using navigation
+
+Use
+
+```js
+<TouchableOpacity
+  onPress={() => navigation.navigate('ResultsShow', { id: item.id })}
+>
+  <ResultsDetail result={item} />
+</TouchableOpacity>
+```
+
+```js
+const ResultsShowScreen = ({ navigation }) => {
+  const id = navigation.getParam('id');
+  ...
+```
