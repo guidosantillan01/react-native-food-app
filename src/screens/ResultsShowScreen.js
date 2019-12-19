@@ -27,7 +27,16 @@ const ResultsShowScreen = ({ navigation }) => {
         data={result.photos}
         keyExtractor={photo => photo}
         renderItem={({ item }) => {
-          return <Image style={styles.image} source={{ uri: item }} />;
+          return (
+            <Image
+              style={styles.image}
+              source={
+                item === ''
+                  ? require('../../assets/no-image.png')
+                  : { uri: item }
+              }
+            />
+          );
         }}
       />
     </View>
