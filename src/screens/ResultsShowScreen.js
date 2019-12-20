@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Image, Button } from 'react-native';
 
 import yelp from '../api/yelp';
 
@@ -21,8 +21,12 @@ const ResultsShowScreen = ({ navigation }) => {
   }
 
   return (
-    <View>
+    <>
       <Text>{result.name}</Text>
+      <Text>{result.phone}</Text>
+      <Text>
+        {result.location.address1}, {result.location.city}
+      </Text>
       <FlatList
         data={result.photos}
         keyExtractor={photo => photo}
@@ -39,7 +43,8 @@ const ResultsShowScreen = ({ navigation }) => {
           );
         }}
       />
-    </View>
+      <Button title="Go to official website" onPress={() => null} />
+    </>
   );
 };
 
